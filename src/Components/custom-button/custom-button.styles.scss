@@ -1,0 +1,11 @@
+.button {
+  margin-top: 15px;
+  font-family: "Lato", sans-serif;
+  padding: 5px;
+  background-color: rgb(240, 221, 116);
+
+  &.card {
+    background-color: palevioletred;
+    color: white;
+  }
+}

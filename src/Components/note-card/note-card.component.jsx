@@ -8,8 +8,8 @@ const NoteCard = ({ category, title, body }) => {
       <h5>{category}</h5>
       <h1>{title}</h1>
       <p>{body.length < 111 ? body : body.substr(1, 111) + "..."}</p>
-      {/* <p>{body}</p> */}
-      <CustomButton>Button</CustomButton>
+      <CustomButton card>Edit</CustomButton>
+      <CustomButton card>Remove</CustomButton>
     </div>
   )
 }
