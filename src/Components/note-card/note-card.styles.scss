@@ -9,15 +9,15 @@
   margin: 10px;
 
   &:nth-child(odd) {
-    background-color: rgba(228, 253, 255, 0.815);
+    background-color: rgba(205, 235, 212, 0.815);
   }
   &:hover {
-    box-shadow: 0px 0px 15px 5px rgba(21, 21, 68, 0.068);
+    box-shadow: 0px 0px 15px 5px rgba(85, 85, 95, 0.068);
     z-index: 20;
   }
 
   h5 {
-    color: rgba(128, 128, 128, 0.733);
+    color: rgba(140, 202, 181, 0.733);
     display: inline;
     padding: 4px;
     border: 2px solid rgba(128, 128, 128, 0.199);
