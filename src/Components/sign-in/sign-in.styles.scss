@@ -1,17 +1,15 @@
-.sign-in-wrapper {
-  float: right;
-  padding: 10px;
+.sign-in-button {
+  font-size: 18px;
+  border: none;
+  background-color: palevioletred;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  font-family: "Lato", sans-serif;
+  transition: 500ms;
 
-  button {
-    font-size: 16px;
-    border: none;
-    background-color: palevioletred;
-    padding: 8px;
-    border-radius: 4px;
-    color: white;
-    font-family: "Lato", sans-serif;
-  }
-  button:hover {
+  &.sign-in-button:hover {
     background-color: #d26f8e;
+    transition: 500ms;
   }
 }

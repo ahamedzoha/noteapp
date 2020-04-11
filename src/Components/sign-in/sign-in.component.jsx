@@ -3,9 +3,9 @@ import "./sign-in.styles.scss"
 import { signInWithGoogle } from "../../firebase/firebase.utils"
 const SignIn = () => {
   return (
-    <div className="sign-in-wrapper">
-      <button onClick={signInWithGoogle}>Sign in</button>
-    </div>
+    <button className="sign-in-button" onClick={signInWithGoogle}>
+      Sign in with <strong>Google</strong>
+    </button>
   )
 }
 
