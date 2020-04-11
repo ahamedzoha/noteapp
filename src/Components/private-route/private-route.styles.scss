@@ -1,0 +1,10 @@
+.private-route {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-template-rows: 1fr 11fr;
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+  .content {
+    background-color: #fafafa;
+  }
+}

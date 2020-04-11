@@ -4,10 +4,8 @@ import "./App.scss"
 import { Switch, Route } from "react-router-dom"
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils"
-import Dashboard from "./Pages/dashboard/dashboard.page"
-import Navigation from "./Components/navigation/navigation.component"
-import Header from "./Components/header/header.component"
-import AddNotePage from "./Pages/add-note/add-note.page"
+import PrivateRoute from "./Components/private-route/private-route.component"
+import LoginSignUp from "./Pages/login-signup/login-signup.page"
 
 class App extends React.Component {
   constructor() {
@@ -45,14 +43,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header currentUser={this.state.currentUser} />
-        <Navigation currentUser={this.state.currentUser} />
-        <div className="content">
-          <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/add-note" component={AddNotePage} />
-          </Switch>
-        </div>
+        {this.state.currentUser ? (
+          <PrivateRoute currentUser={this.state.currentUser} />
+        ) : (
+          <LoginSignUp />
+        )}
       </div>
     )
   }
