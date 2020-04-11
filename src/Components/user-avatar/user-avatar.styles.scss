@@ -1,0 +1,20 @@
+.user-avatar {
+  float: right;
+
+  p {
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+    right: 20px;
+    color: #61b0d4;
+  }
+
+  .avatar {
+    background-color: honeydew;
+    border: 2px solid white;
+    border-radius: 100%;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 255, 0.2);
+    width: 40px;
+    display: inline-block;
+  }
+}

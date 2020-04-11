@@ -1,18 +1,14 @@
 import React from "react"
 import "./header.styles.scss"
-const Header = () => {
+import UserAvatar from "../user-avatar/user-avatar.component"
+import SignIn from "../sign-in/sign-in.component"
+
+const Header = ({ currentUser }) => {
   return (
     <div className="header-container">
       <h1 className="logotext">SimplyNote</h1>
 
-      <div className="user-avatar">
-        <p>Azaz Ahamed</p>
-        <img
-          className="avatar"
-          src="https://robohash.org/avatar.png"
-          alt="logo"
-        />
-      </div>
+      {currentUser ? <UserAvatar currentUser={currentUser} /> : <SignIn />}
     </div>
   )
 }

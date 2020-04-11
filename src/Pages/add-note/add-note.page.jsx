@@ -6,7 +6,7 @@ export default class AddNotePage extends React.Component {
     super()
 
     this.state = {
-      category: "Home",
+      category: "",
       title: "",
       body: ""
     }
@@ -38,7 +38,11 @@ export default class AddNotePage extends React.Component {
         <form className="form-wrapper" onSubmit={this.handleSubmit}>
           <label>Select Category</label>
 
-          <select onChange={this.handleChange} name="category">
+          <select
+            value={this.state.category}
+            onChange={this.handleChange}
+            name="category"
+          >
             <option value="Home">Home</option>
             <option value="School">School</option>
             <option value="Office">Office</option>
