@@ -1,17 +1,7 @@
 import firebase from "firebase/app"
 import "firebase/firestore"
 import "firebase/auth"
-
-const config = {
-  apiKey: "AIzaSyDM7t4K09hCADAwHwclm8fUSlLjBZi4AQM",
-  authDomain: "simplynote-portfolio.firebaseapp.com",
-  databaseURL: "https://simplynote-portfolio.firebaseio.com",
-  projectId: "simplynote-portfolio",
-  storageBucket: "simplynote-portfolio.appspot.com",
-  messagingSenderId: "393618738762",
-  appId: "1:393618738762:web:d3a4ec256efef74370e0b3",
-  measurementId: "G-ZJWRGFZMH0",
-}
+import config from "./firebaseconfig"
 
 firebase.initializeApp(config)
 
