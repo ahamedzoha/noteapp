@@ -3,7 +3,7 @@ import "firebase/firestore"
 import "firebase/auth"
 import config from "./firebaseconfig"
 
-firebase.initializeApp(config)
+firebase.initializeApp(config || process.env.config)
 
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({ prompt: "select_account" })
