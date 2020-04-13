@@ -2,6 +2,7 @@ import React from "react"
 //import logo from "./logo.svg"
 import "./App.scss"
 
+// import { Switch, Route } from "react-router-dom"
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils"
 import PrivateRoute from "./Components/private-route/private-route.component"
 import LoginSignUp from "./Pages/login-signup/login-signup.page"
