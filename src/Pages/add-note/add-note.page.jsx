@@ -1,33 +1,37 @@
 import React from "react"
 import "./add-note-page.styles.scss"
+import { connect } from "react-redux"
+import { addNote } from "../../redux/notes/notes.actions"
 
-export default class AddNotePage extends React.Component {
+class AddNotePage extends React.Component {
   constructor() {
     super()
 
     this.state = {
       category: "",
       title: "",
-      body: ""
+      body: "",
     }
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { value, name } = e.target
 
     this.setState({
-      [name]: value
+      [name]: value,
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault()
 
     this.setState({
       category: "",
       title: "",
-      body: ""
+      body: "",
     })
+
+    this.props.addNote(this.state)
   }
 
   render() {
@@ -72,3 +76,9 @@ export default class AddNotePage extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  addNote: (note) => dispatch(addNote(note)),
+})
+
+export default connect(null, mapDispatchToProps)(AddNotePage)

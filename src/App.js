@@ -1,38 +1,32 @@
 import React from "react"
-//import logo from "./logo.svg"
 import "./App.scss"
+import { Route, Switch, Redirect } from "react-router-dom"
 
-// import { Switch, Route } from "react-router-dom"
+import { connect } from "react-redux"
+import { setCurrentuser } from "./redux/user/user.actions"
+
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils"
 import PrivateRoute from "./Components/private-route/private-route.component"
 import LoginSignUp from "./Pages/login-signup/login-signup.page"
 
 class App extends React.Component {
-  constructor() {
-    super()
-
-    this.state = {
-      currentUser: null,
-    }
-  }
-
   unsubscribeFromAuth = null
 
   componentDidMount() {
+    const { setCurrentuser } = this.props
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
 
         userRef.onSnapshot((snapShot) => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data(),
-            },
+          setCurrentuser({
+            id: snapShot.id,
+            ...snapShot.data(),
           })
         })
       }
-      this.setState({ currentUser: userAuth })
+      setCurrentuser(userAuth)
     })
   }
 
@@ -43,8 +37,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.currentUser ? (
-          <PrivateRoute currentUser={this.state.currentUser} />
+        {this.props.currentUser ? (
+          <PrivateRoute currentUser={this.props.currentUser} />
         ) : (
           <LoginSignUp />
         )}
@@ -53,4 +47,12 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentuser: (user) => dispatch(setCurrentuser(user)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
